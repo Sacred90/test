@@ -1,3 +1,47 @@
-<h1>
-  {{title}}
-</h1>
+<md-card class="card">
+	<form class="form" *ngIf="!isSuccessLoggin" [formGroup]="loginForm" (ngSubmit)="doLogin($event)">
+		
+		<div class = "form-fill">
+			<div>
+			  <md-input-container>
+			  	<input mdInput placeholder="email" formControlName="email">
+				</md-input-container>
+				<span class="form-input-error" *ngIf="!loginForm.controls.email.valid && isSubmitted">
+						invalid email
+				</span>
+			</div>
+
+			<div>
+			  <md-input-container>
+			  	<input mdInput placeholder="password" formControlName="password">
+				</md-input-container>
+				<span class="form-input-error" *ngIf="!loginForm.controls.password.valid && isSubmitted">
+					invalid password
+				</span>
+			</div>
+
+			<md-checkbox formControlName="rememberUser">Rember me!</md-checkbox>
+			
+			<div class="form-button">
+				<button type="submit" md-raised-button>Log in</button>
+			</div>
+		</div>
+
+		<span class="form-loader">
+			<md-progress-circle *ngIf = "isLoading"
+	      [color]="'primary'"
+	      [mode]="'indeterminate'">
+	    </md-progress-circle>
+	  </span>
+	  
+	  <span class="form-response-error">
+	  	{{ response }}
+	  </span>
+
+	</form>
+
+	
+	<h1 *ngIf="isSuccessLoggin">
+		{{ response }}
+	</h1>
+</md-card> 

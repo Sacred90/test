@@ -1,0 +1,45 @@
+body { font-family: Roboto, Arial, sans-serif; }
+
+.form {
+	display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+	width: 500px;
+	margin: auto;
+}
+
+.form-loader {
+	align-self: center;
+}
+
+.form-input-error {
+	padding-left: 10px;
+	color: red;
+}
+
+.form-response-error {
+	align-self: center;
+	color: red;
+}
+
+.form-button {
+	padding-top: 20px;
+}
+
+.form-button button {
+	width: 180px;
+	margin: auto;
+}
+
+@media only all and (max-width: 768px) {
+  .card {
+  	width: auto;
+  }
+}
+
